@@ -5,3 +5,7 @@
 .material-icons {
     margin-left: 10px;
 }
+
+#main {
+    float: left
+}
