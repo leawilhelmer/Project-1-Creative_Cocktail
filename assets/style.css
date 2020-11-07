@@ -1,5 +1,9 @@
+body {
+    background-color: #E6E6FA;
+}
+
 .nav-wrapper {
-    background-color: gray;
+    background-color: #191970;
 }
 
 .material-icons {
