@@ -10,12 +10,44 @@ body {
     margin-left: 10px;
 }
 
-body {
-    background-color: #E6E6FA;
+.list{
+    display: flex;
+    justify-content: space-around;
 }
-.nav-wrapper {
-    background-color: #191970;
+.row{
+    display: flex;
 }
-.material-icons {
+​
+.col{
+    border-radius: 10px;
+    border: solid;
+    margin-right: 30px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 5px 10px #888888;
+}
+.col img{
+    margin-top: 10px;
+    width: 200px;
     margin-left: 10px;
+    margin-right: 10px;
 }
+​
+.col p{
+    width: 50%;
+}
+​
+img{
+    border-radius: 25px;
+}
+​
+.results{
+    width: 500px;
+    padding-left: 200px;
+}
+​
+.result-header{
+    font-family: Century Gothic;
+    margin-bottom: 0;
+}
+
