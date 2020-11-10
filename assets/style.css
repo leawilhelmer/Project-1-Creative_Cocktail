@@ -10,12 +10,6 @@ body {
     margin-left: 10px;
 }
 
-h1 {
-    color: gray;
-    text-align: center;
-    font-size: small;
-}
-
 .list{
     display: flex;
     justify-content: space-around;
@@ -23,7 +17,7 @@ h1 {
 .row{
     display: flex;
 }
-
+​
 .col{
     border-radius: 10px;
     border: solid;
@@ -38,23 +32,22 @@ h1 {
     margin-left: 10px;
     margin-right: 10px;
 }
-
+​
 .col p{
     width: 50%;
 }
-
+​
 img{
     border-radius: 25px;
 }
-
+​
 .results{
     width: 500px;
     padding-left: 200px;
 }
-
+​
 .result-header{
     font-family: Century Gothic;
     margin-bottom: 0;
-    font-size: 30px;
-    color: #696969;
 }
+
