@@ -1,38 +1,41 @@
 // on window
 
-fetch("https://the-cocktail-db.p.rapidapi.com/list.php?i=list", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
-		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-	}
-})
+// fetch("https://the-cocktail-db.p.rapidapi.com/list.php?i=list", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+// 		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+// 	}
+// })
+// 	.then(response =>
+// 		response.json())
+// 	.then(data => {
+// 		console.log(data)
+// 	})
+// 	.catch(error => {
+// 		console.log(error);
+// 	})
+
+function drinkData() {
+	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+			"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+		}
+	})
 	.then(response =>
 		response.json())
-	.then(data => {
-		console.log(data)
-	})
-	.catch(error => {
-		console.log(error);
-	})
+	.then(cocktailData => {
+		console.log(cocktailData);
 
-
-fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
-		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
-	}
-})
-
-	.then(response =>
-		response.json())
-	.then(response => {
-		console.log(response);
 	})
 	.catch(err => {
 		console.error(err);
 	});
+}
+
+drinkData()
 
 
 
@@ -41,29 +44,29 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 // 	drinks.strDrinks
 
 // }
-var formInput = document.querySelector("#formInput");
-var ingredientInput = document.querySelector("#ingredientInput");
-var textInput = document.querySelector("#textInput");
+// var formInput = document.querySelector("#formInput");
+// var ingredientInput = document.querySelector("#ingredientInput");
+// var textInput = document.querySelector("#textInput");
 
 
-formInput.addEventListener("submit", function (e) {
-	e.preventDefault()
-	console.log("It worked?")
+// formInput.addEventListener("submit", function (e) {
+// 	e.preventDefault()
+// 	console.log("It worked?")
 
-	let drinks = {
-		name: drinks.strDrink.value,
-		ingredients: drinks.strIngredient1.value,
+// 	let drinks = {
+// 		name: drinks.strDrink.value,
+// 		ingredients: drinks.strIngredient1.value,
 
-		function drinks(name, ingredients) {
-			this.name = name
-			this.ingredients = ingredients
-		}
-}
-	console.log(drinks)
+// 		function drinks(name, ingredients) {
+// 			this.name = name
+// 			this.ingredients = ingredients
+// 		}
+// }
+// 	console.log(drinks)
 
-	localStorage.setItem("drinks", JSON.stringify(drinks))
-// setting to local storage
-})
-var userObject = localStorage.getItem("drinks")
-console.log(JSON.parse(userObject))
+// 	localStorage.setItem("drinks", JSON.stringify(drinks))
+// // setting to local storage
+// })
+// var userObject = localStorage.getItem("drinks")
+// console.log(JSON.parse(userObject))
 
