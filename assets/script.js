@@ -28,6 +28,20 @@ function drinkData() {
 		response.json())
 	.then(cocktailData => {
 		console.log(cocktailData);
+		var drinkName = cocktailData.drinks
+		drinkName.forEach(drink => {
+			names = drink.strDrink;
+			instructions = drink.strInstructions;
+			ingredients = drink.strIngredient1;
+			images = drink.strDrinkThumb;
+
+			
+			console.log(names) //UPDATE: prints out names of drinks
+			document.getElementById("cocktailName").textContent = names
+			//FIXME: only printing out the last drink
+		
+		})
+		
 
 	})
 	.catch(err => {
