@@ -16,6 +16,9 @@ header {
     font-size: 50px;
     margin-left: 10px;
 }
+#htmlNames {
+    font-size: 15px;
+}
 
 .list{
     display: flex;
@@ -58,3 +61,6 @@ img{
     margin-bottom: 0;
 }
 
+#listOfCocktails {
+    margin-left:  15px;
+}

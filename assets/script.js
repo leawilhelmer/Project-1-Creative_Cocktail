@@ -16,6 +16,9 @@
 // 		console.log(error);
 // 	})
 
+var cocktails = document.querySelector("#listOfCocktails")
+
+
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		"method": "GET",
@@ -34,24 +37,27 @@ function drinkData() {
 			instructions = drink.strInstructions;
 			ingredients = drink.strIngredient1;
 			images = drink.strDrinkThumb;
+	
+	var driName = document.createElement("h4")
+	driName.textContent = names
 
-			
-			console.log(names) //UPDATE: prints out names of drinks
-			document.getElementById("cocktailName").textContent = names
-			//FIXME: only printing out the last drink
-		
+	var img = new Image();
+	img.src = images
+	
+
+	cocktails.appendChild(driName)//UPDATE: prints out names of drinks to cocktail.html
+	cocktails.appendChild(img).width = "200" //UPDATE: prints out images of drinks to cocktail.
 		})
 		
-
 	})
 	.catch(err => {
 		console.error(err);
 	});
+	
+	
 }
 
 drinkData()
-
-
 
 
 // let ingrPush = document.querySelector("#ingredient") {
