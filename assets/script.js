@@ -35,8 +35,11 @@ function drinkData() {
 		drinkName.forEach(drink => {
 			names = drink.strDrink;
 			instructions = drink.strInstructions;
-			ingredients = drink.strIngredient1;
+			ingredients = drink.strIngredient;
 			images = drink.strDrinkThumb;
+			measurements = drink.strMeasure1
+
+
 	
 	var driName = document.createElement("h4")
 	driName.textContent = names
@@ -44,9 +47,9 @@ function drinkData() {
 	var img = new Image();
 	img.src = images
 	
-
+	
 	cocktails.appendChild(driName)//UPDATE: prints out names of drinks to cocktail.html
-	cocktails.appendChild(img).width = "200" //UPDATE: prints out images of drinks to cocktail.
+	cocktails.appendChild(img).width = "250" //UPDATE: prints out images of drinks to cocktail.
 		})
 		
 	})
