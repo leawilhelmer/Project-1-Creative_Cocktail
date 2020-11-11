@@ -1,13 +1,23 @@
 body {
     background-color: #E6E6FA;
 }
+header {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+}
 
 .nav-wrapper {
     background-color: #191970;
 }
 
-.material-icons {
+#martini {
+    font-size: 50px;
     margin-left: 10px;
+}
+#htmlNames {
+    font-size: 15px;
 }
 
 .list{
@@ -51,3 +61,6 @@ img{
     margin-bottom: 0;
 }
 
+#listOfCocktails {
+    margin-left:  15px;
+}

@@ -5,22 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <title>Creative Cocktails</title>
 </head>
 
 
 <body>
+  <header>Creative Cocktails</header>
 
-    <h1>Creative Cocktails</h1>
 
     <nav>
       <div class="nav-wrapper">
         
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="cocktails.html">Cocktails</a></li>
-          <li><a href="bestcocktails.html">Best Cocktails</a></li>
+          <li><a href="cocktails.html" style="font-size: 20px; text-decoration: underline;">List of Drinks</a></li>
+          <li><a href="bestcocktails.html" style="font-size: 20px; text-decoration: underline;">Popular Cocktails</a></li>
         </ul>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><i class="material-icons">local_bar</i>
+        <a href="./index.html"><i class="material-icons" id="martini">local_bar</i>
+        </a>
       </div>
     </nav>
 
@@ -50,6 +54,14 @@
 
 
 <!-- victor -->
+
+<div class="all-cocktails">
+  <div class="row"> 
+    <div id="listOfCocktails" class="col-md-3"> 
+    </div>
+  </div>
+</div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="./assets/script.js"></script>
