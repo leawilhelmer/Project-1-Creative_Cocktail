@@ -19,6 +19,8 @@
 var cocktails = document.querySelector("#listOfCocktails")
 
 
+
+
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		"method": "GET",
@@ -31,27 +33,27 @@ function drinkData() {
 		response.json())
 	.then(cocktailData => {
 		console.log(cocktailData);
-		var drinkName = cocktailData.drinks
-		drinkName.forEach(drink => {
+		var drinkInfo = cocktailData.drinks
+		drinkInfo.forEach(drink => {
 			names = drink.strDrink;
 			instructions = drink.strInstructions;
+			
 			ingredients = drink.strIngredient;
 			images = drink.strDrinkThumb;
 			measurements = drink.strMeasure1
 
 
-	
+
 	var driName = document.createElement("h4")
 	driName.textContent = names
 
 	var img = new Image();
 	img.src = images
 	
-	
 	cocktails.appendChild(driName)//UPDATE: prints out names of drinks to cocktail.html
-	cocktails.appendChild(img).width = "250" //UPDATE: prints out images of drinks to cocktail.
-		})
-		
+	cocktails.appendChild(img).width = "250" //UPDATE: prints out images of drinks to cocktail.html
+})
+
 	})
 	.catch(err => {
 		console.error(err);
@@ -63,33 +65,29 @@ function drinkData() {
 drinkData()
 
 
-// let ingrPush = document.querySelector("#ingredient") {
-// 	drinks.strDrinks
+// NOTE: Adding randomize drinks to index.html
 
-// }
-// var formInput = document.querySelector("#formInput");
-// var ingredientInput = document.querySelector("#ingredientInput");
-// var textInput = document.querySelector("#textInput");
+function drinkOfTheDay() {
+	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+			"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+		}
+	})
+	.then(response => response.json())
+	.then(function(cocktailData) {
+		console.log(cocktailData.drinks)
+		for (var i = 0; i < cocktailData.length; i++) {
+			
+			var rand = Math.floor(Math.random() * 20)
+			displayName(cocktailData[rand])
+			console.log(rand)
+		}
 
+	})
+	.catch(error => console.log('Error', error));
+}
 
-// formInput.addEventListener("submit", function (e) {
-// 	e.preventDefault()
-// 	console.log("It worked?")
-
-// 	let drinks = {
-// 		name: drinks.strDrink.value,
-// 		ingredients: drinks.strIngredient1.value,
-
-// 		function drinks(name, ingredients) {
-// 			this.name = name
-// 			this.ingredients = ingredients
-// 		}
-// }
-// 	console.log(drinks)
-
-// 	localStorage.setItem("drinks", JSON.stringify(drinks))
-// // setting to local storage
-// })
-// var userObject = localStorage.getItem("drinks")
-// console.log(JSON.parse(userObject))
+drinkOfTheDay()
 
