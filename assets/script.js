@@ -63,8 +63,8 @@ drinkData()
 const flipcardFront = document.getElementById("flipcardFront");
 //This variable is for the div with id 'flipcardBack'
 const flipcardBack = document.getElementById("flipcardBack");
-function randomizedDrink() {
-	//Here we are fetching the most popular drinks from the cocktail API
+
+//Here we are fetching the most popular drinks from the cocktail API
 fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 	method: "GET",
 	headers: {
@@ -74,7 +74,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 })
 	.then((response) => response.json())
 	.then((data) => {
-
 		var d = new Date();
 		var todaysDate = d.getDate();
 		console.log(d.getDate());
@@ -92,13 +91,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		// let imgUrl = data.drinks[random].strDrinkThumb;
 		// let name = data.drinks[random].strDrink;
 		let img = `<img src=${imgUrl} style="width: 200px; border-radius: 10px;"/>`;
-		let drinksLength = data.drinks.length;
-		let random = Math.floor(Math.random() * drinksLength);
-		console.log(data.drinks[random].strDrinkThumb);
-		let imgUrl = data.drinks[random].strDrinkThumb;
-		let name = data.drinks[random].strDrink;
-		let img = `<img src=${imgUrl} style="width: 300px; border-radius: 10px;"/>`;
-
 		let cocktailName = `<h3>${name}</h3>`;
 		flipcardFront.innerHTML += img;
 		flipcardFront.innerHTML += cocktailName;
@@ -151,14 +143,11 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 	// FIXME: I noticed when margarita or brandy alexander appears at random, salt and nutmeg measurement = null. 
 	// 
 
-
 if (i > todaysDate) {
 	var i = 0;
 	break;
 }
-		}
-	})
+	}
+})
 
-}
-randomizedDrink()
 
