@@ -74,12 +74,31 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 })
 	.then((response) => response.json())
 	.then((data) => {
+
+		var d = new Date();
+		var todaysDate = d.getDate();
+		console.log(d.getDate());
+		var i;
+		for (i = 0; i < 20; i+=19) {
+			if (i < todaysDate) {
+				let imgUrl = data.drinks[i].strDrinkThumb;
+				let name = data.drinks[i].strDrink;
+			
+			
+
+		// let drinksLength = data.drinks.length;
+		// let random = Math.floor(Math.random() * drinksLength);
+		// console.log(data.drinks[random].strDrinkThumb);
+		// let imgUrl = data.drinks[random].strDrinkThumb;
+		// let name = data.drinks[random].strDrink;
+		let img = `<img src=${imgUrl} style="width: 200px; border-radius: 10px;"/>`;
 		let drinksLength = data.drinks.length;
 		let random = Math.floor(Math.random() * drinksLength);
 		console.log(data.drinks[random].strDrinkThumb);
 		let imgUrl = data.drinks[random].strDrinkThumb;
 		let name = data.drinks[random].strDrink;
 		let img = `<img src=${imgUrl} style="width: 300px; border-radius: 10px;"/>`;
+
 		let cocktailName = `<h3>${name}</h3>`;
 		flipcardFront.innerHTML += img;
 		flipcardFront.innerHTML += cocktailName;
@@ -87,25 +106,27 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		// All the drinks have a maximum of 6 ingredients, so we put 6 of those
 		// in this array
 		let ingredientsArr = [
-			data.drinks[random].strIngredient1,
-			data.drinks[random].strIngredient2,
-			data.drinks[random].strIngredient3,
-			data.drinks[random].strIngredient4,
-			data.drinks[random].strIngredient5,
-			data.drinks[random].strIngredient6,
-			data.drinks[random].strIngredient7,
+			data.drinks[i].strIngredient1,
+			data.drinks[i].strIngredient2,
+			data.drinks[i].strIngredient3,
+			data.drinks[i].strIngredient4,
+			data.drinks[i].strIngredient5,
+			data.drinks[i].strIngredient6,
+			data.drinks[i].strIngredient7,
     ];
     let measurementsArr = [
-		data.drinks[random].strMeasure1,
-		data.drinks[random].strMeasure2,
-		data.drinks[random].strMeasure3,
-		data.drinks[random].strMeasure4,
-		data.drinks[random].strMeasure5,
-		data.drinks[random].strMeasure6,
-		data.drinks[random].strMeasure7,
-    ];
+		data.drinks[i].strMeasure1,
+		data.drinks[i].strMeasure2,
+		data.drinks[i].strMeasure3,
+		data.drinks[i].strMeasure4,
+		data.drinks[i].strMeasure5,
+		data.drinks[i].strMeasure6,
+		data.drinks[i].strMeasure7,
+	];
+
     // We intialize 'x' as an empty string
-    let x = "";
+	let x = "";
+
     // We loop through the array
     for (var i = 0; i <= ingredientsArr.length; i++) {
 		//if the next ingredient is 'null' that means
@@ -114,18 +135,30 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		if (ingredientsArr[i] === null) {
 			break;
 		}
+	
 		//we add each ingredient to the 'x'
 		x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;
-    }
+	}
+
     // here we populate div with id="flipcardBack" with 'x'
     flipcardFront.innerHTML += `<ul class="ingredientList">
     ${x}
     </ul>
     `;
-	flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[random].strInstructions}</p>`
-	});
+	flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[i].strInstructions}</p>`
+}
+		
 	// FIXME: I noticed when margarita or brandy alexander appears at random, salt and nutmeg measurement = null. 
 	// 
+
+
+if (i > todaysDate) {
+	var i = 0;
+	break;
+}
+		}
+	})
+
 }
 randomizedDrink()
 
