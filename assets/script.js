@@ -38,20 +38,12 @@ function drinkData() {
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
 			drinksDiv.innerHTML += `<div class="col s3"><h5 style="text-align: center">${drinksName}</h5><img src=${drinksImg} style="width: 300px; border-radius: 10px;"/></div>`
-			
-			
-			var nameArr = [cocktailData.drinks[i].strDrink]
-			var imgArr = [cocktailData.drinks[i].strDrinkThumb]
-
-			
 		}
-
 	})
 	.catch(err => {
 		console.error(err);
 	});
-	
-	
+
 }
 
 drinkData()
@@ -84,7 +76,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 				let name = data.drinks[i].strDrink;
 			
 			
-
 		// let drinksLength = data.drinks.length;
 		// let random = Math.floor(Math.random() * drinksLength);
 		// console.log(data.drinks[random].strDrinkThumb);
@@ -149,5 +140,3 @@ if (i > todaysDate) {
 }
 	}
 })
-
-
