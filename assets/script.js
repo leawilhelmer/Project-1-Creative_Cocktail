@@ -1,29 +1,11 @@
 // on window
 
-// fetch("https://the-cocktail-db.p.rapidapi.com/list.php?i=list", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
-// 		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-// 	}
-// })
-// 	.then(response =>
-// 		response.json())
-// 	.then(data => {
-// 		console.log(data)
-// 	})
-// 	.catch(error => {
-// 		console.log(error);
-// 	})
-
-
-
 
 //NOTE: this will be added to List of Drinks
 var drinksDiv = document.querySelector("#drinksDiv")
 
 function drinkData() {
-	fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?a=Alcoholic", {
+	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
@@ -42,6 +24,7 @@ function drinkData() {
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
 			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/></div>`
+
 		}
 	})
 	.catch(err => {
@@ -50,6 +33,33 @@ function drinkData() {
 }
 drinkData()
 
+function additionalData() {
+	fetch("https:the-cocktail-db.p.rapidapi.com/latest.php", {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+			"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+		}
+	})
+	.then(response =>
+		response.json())
+	.then(cocktailData => {
+		console.log(cocktailData)
+		var drinksInfo = cocktailData.drinks
+
+		for (var i = 0 ; i < drinksInfo.length; i++) {
+			var drinksEle = drinksInfo[i];
+			var drinksName = drinksEle.strDrink
+			var drinksImg = drinksEle.strDrinkThumb
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/></div>`
+
+		}
+	})
+	.catch(err => {
+		console.error(err);
+	});
+}
+additionalData()
 
 //NOTE: this will be added to Most Popular Drinks html
 var popularDrink = document.querySelector("#popular-div")
@@ -68,7 +78,7 @@ function mostPopularDrinks() {
 		console.log(moreData)
 		var drinksInfo = moreData.drinks
 
-		for (var i = 0 ; i < drinksInfo.length; i++) {
+		for (var i = 0 ; i < 8; i++) {
 			var drinksEle = drinksInfo[i];
 			var popDrinksName = drinksEle.strDrink
 			var popDrinksImg = drinksEle.strDrinkThumb
@@ -91,7 +101,7 @@ const flipcardBack = document.getElementById("flipcardBack");
 
 function randomizeDrinks() {
 //Here we are fetching the most popular drinks from the cocktail API
-fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
+fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 	method: "GET",
 	headers: {
 		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
