@@ -67,7 +67,12 @@ img{
 }
 
 
-.ingredientBtn, .measurementsBtn, .instructionsBtn {
+.flipTheCard{
+    transform: rotateY(180deg);
+}
+
+
+.ingredientBtn{
     font-family: Century Gothic;
     background-color: #EE6E73;
     color: white;
@@ -78,51 +83,64 @@ img{
     top: 0;
     position: relative;
 }
-.ingredientBtn, .measurementsBtn, .instructionsBtn :hover{
+.ingredientBtn:hover{
     top: -3px;
     cursor: pointer;
 }
 
 
+
+
 .flip-card {
+    margin:auto ;
     font-family: Century Gothic;
     width: 300px;
-    height: 300px;
+    height: 200px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 1s;
     transform-style: preserve-3d;
-  }
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
+}
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
-  }
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
-  }
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-      border-radius: 25px;
+}
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    border-radius: 25px;
     color: black;
-  }
-  /* Style the back side */
-  .flip-card-back {
+}
+/* Style the back side */
+.flip-card-back {
     border-radius: 25px;
     background-color: #EE6E73;
     color: white;
     transform: rotateY(180deg);
-    overflow: scroll;
-  }
+    overflow: hidden;
+}
+/* Ingredients List (with measurements)*/
+.ingredientList{
+    display: flex;
+}
+.ingredient{
+    margin-right: 10px;
+}
+  /* End of Ingredients List */
+
+.instructions{
+    font-size: 15px;
+}
