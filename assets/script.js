@@ -16,7 +16,7 @@
 // 		console.log(error);
 // 	})
 
-var cocktails = document.querySelector("#listOfCocktails")
+var drinksDiv = document.querySelector("#drinksDiv")
 
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
@@ -29,33 +29,21 @@ function drinkData() {
 	.then(response =>
 		response.json())
 	.then(cocktailData => {
-		console.log(cocktailData);
-		var drinkInfo = cocktailData.drinks
-		drinkInfo.forEach(drink => {
-			names = drink.strDrink;
-			instructions = drink.strInstructions;
-			
-			ingredients = drink.strIngredient;
-			images = drink.strDrinkThumb;
-			measurements = drink.strMeasure1
+		console.log(cocktailData)
+		console.log(cocktailData.drinks.length)
+		var drinksInfo = cocktailData.drinks
 
-
-	var driName = document.createElement("h4")
-	driName.textContent = names
-
-	var img = new Image();
-	img.src = images
-	
-	cocktails.appendChild(driName)//UPDATE: prints out names of drinks to cocktail.html
-	cocktails.appendChild(img).width = "250" //UPDATE: prints out images of drinks to cocktail.html
-})
-
+		for (var i = 0 ; i < drinksInfo.length; i++) {
+			var drinksEle = drinksInfo[i];
+			var drinksName = drinksEle.strDrink
+			var drinksImg = drinksEle.strDrinkThumb
+			drinksDiv.innerHTML += `<div class="col s3"><h5 style="text-align: center">${drinksName}</h5><img src=${drinksImg} style="width: 300px; border-radius: 10px;"/></div>`
+		}
 	})
 	.catch(err => {
 		console.error(err);
 	});
-	
-	
+
 }
 
 drinkData()
@@ -88,7 +76,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 				let name = data.drinks[i].strDrink;
 			
 			
-
 		// let drinksLength = data.drinks.length;
 		// let random = Math.floor(Math.random() * drinksLength);
 		// console.log(data.drinks[random].strDrinkThumb);
@@ -151,5 +138,5 @@ if (i > todaysDate) {
 	var i = 0;
 	break;
 }
-		}
-	})
+	}
+})
