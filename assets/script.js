@@ -16,7 +16,7 @@
 // 		console.log(error);
 // 	})
 
-var cocktails = document.querySelector("#listOfCocktails")
+var drinksDiv = document.querySelector("#drinksDiv")
 
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
@@ -29,26 +29,22 @@ function drinkData() {
 	.then(response =>
 		response.json())
 	.then(cocktailData => {
-		console.log(cocktailData);
-		var drinkInfo = cocktailData.drinks
-		drinkInfo.forEach(drink => {
-			names = drink.strDrink;
-			instructions = drink.strInstructions;
+		console.log(cocktailData)
+		console.log(cocktailData.drinks.length)
+		var drinksInfo = cocktailData.drinks
+
+		for (var i = 0 ; i < drinksInfo.length; i++) {
+			var drinksEle = drinksInfo[i];
+			var drinksName = drinksEle.strDrink
+			var drinksImg = drinksEle.strDrinkThumb
+			drinksDiv.innerHTML += `<div class="col s3"><h5 style="text-align: center">${drinksName}</h5><img src=${drinksImg} style="width: 300px; border-radius: 10px;"/></div>`
 			
-			ingredients = drink.strIngredient;
-			images = drink.strDrinkThumb;
-			measurements = drink.strMeasure1
+			
+			var nameArr = [cocktailData.drinks[i].strDrink]
+			var imgArr = [cocktailData.drinks[i].strDrinkThumb]
 
-
-	var driName = document.createElement("h4")
-	driName.textContent = names
-
-	var img = new Image();
-	img.src = images
-	
-	cocktails.appendChild(driName)//UPDATE: prints out names of drinks to cocktail.html
-	cocktails.appendChild(img).width = "250" //UPDATE: prints out images of drinks to cocktail.html
-})
+			
+		}
 
 	})
 	.catch(err => {
@@ -67,8 +63,8 @@ drinkData()
 const flipcardFront = document.getElementById("flipcardFront");
 //This variable is for the div with id 'flipcardBack'
 const flipcardBack = document.getElementById("flipcardBack");
-
-//Here we are fetching the most popular drinks from the cocktail API
+function randomizedDrink() {
+	//Here we are fetching the most popular drinks from the cocktail API
 fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 	method: "GET",
 	headers: {
@@ -78,6 +74,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 })
 	.then((response) => response.json())
 	.then((data) => {
+
 		var d = new Date();
 		var todaysDate = d.getDate();
 		console.log(d.getDate());
@@ -95,6 +92,13 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		// let imgUrl = data.drinks[random].strDrinkThumb;
 		// let name = data.drinks[random].strDrink;
 		let img = `<img src=${imgUrl} style="width: 200px; border-radius: 10px;"/>`;
+		let drinksLength = data.drinks.length;
+		let random = Math.floor(Math.random() * drinksLength);
+		console.log(data.drinks[random].strDrinkThumb);
+		let imgUrl = data.drinks[random].strDrinkThumb;
+		let name = data.drinks[random].strDrink;
+		let img = `<img src=${imgUrl} style="width: 300px; border-radius: 10px;"/>`;
+
 		let cocktailName = `<h3>${name}</h3>`;
 		flipcardFront.innerHTML += img;
 		flipcardFront.innerHTML += cocktailName;
@@ -147,9 +151,14 @@ fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 	// FIXME: I noticed when margarita or brandy alexander appears at random, salt and nutmeg measurement = null. 
 	// 
 
+
 if (i > todaysDate) {
 	var i = 0;
 	break;
 }
 		}
 	})
+
+}
+randomizedDrink()
+
