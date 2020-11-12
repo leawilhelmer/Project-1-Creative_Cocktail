@@ -20,6 +20,11 @@ header {
     font-size: 15px;
 }
 
+#search {
+    background-color: #191970;
+    color: white
+}
+
 .list{
     display: flex;
     justify-content: space-around;
