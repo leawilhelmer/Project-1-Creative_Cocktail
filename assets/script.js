@@ -171,4 +171,19 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 }
 randomizeDrinks()
 
+var dadJoke = document.querySelector(".center-align")
+
+fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "5317d4a7bbmsheea7635e83cfc32p12631ejsnbaba3f7b7b71",
+		"x-rapidapi-host": "dad-jokes.p.rapidapi.com"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
 
