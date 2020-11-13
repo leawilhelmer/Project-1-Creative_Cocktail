@@ -1,6 +1,3 @@
-// on window
-
-
 //NOTE: this will be added to List of Drinks
 var drinksDiv = document.querySelector("#drinksDiv")
 
@@ -15,16 +12,14 @@ function drinkData() {
 	.then(response =>
 		response.json())
 	.then(cocktailData => {
-		console.log(cocktailData)
-		// console.log(cocktailData.drinks.length)
 		var drinksInfo = cocktailData.drinks
 
 		for (var i = 0 ; i < drinksInfo.length; i++) {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/></div>`
-
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			
 		}
 	})
 	.catch(err => {
@@ -44,14 +39,13 @@ function additionalData() {
 	.then(response =>
 		response.json())
 	.then(cocktailData => {
-		console.log(cocktailData)
 		var drinksInfo = cocktailData.drinks
 
 		for (var i = 0 ; i < drinksInfo.length; i++) {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/></div>`
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
 
 		}
 	})
@@ -77,14 +71,14 @@ function mostPopularDrinks() {
 	.then(moreData => {
 		console.log(moreData)
 		var drinksInfo = moreData.drinks
-
 		for (var i = 0 ; i < 8; i++) {
 			var drinksEle = drinksInfo[i];
 			var popDrinksName = drinksEle.strDrink
 			var popDrinksImg = drinksEle.strDrinkThumb
-			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/></div>`
+			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			
 		}
-	})
+		})
 	.catch(err => {
 		console.error(err);
 	})
@@ -112,7 +106,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 	.then((data) => {
 		let drinksLength = data.drinks.length;
 		let random = Math.floor(Math.random() * drinksLength);
-		console.log(data.drinks[random].strDrinkThumb);
+		// console.log(data.drinks[random].strDrinkThumb);
 		let imgUrl = data.drinks[random].strDrinkThumb;
 		let name = data.drinks[random].strDrink;
 		let img = `<img src=${imgUrl} style="width: 300px; border-radius: 10px;"/>`;
@@ -150,8 +144,19 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 			if (ingredientsArr[i] === null) {
 				break;
 			}
+			
+
+			//checking for truthiness != includes null & undefined
 			//we add each ingredient to the 'x'
-			x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;
+
+			if (measurementsArr[i] != null)
+				{x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;}
+
+			//checking for truthiness. if it is equal to null or undefined then..
+			else if (measurementsArr[i] !== null) {
+				window.print("to taste:")
+			}
+			
 		}
 		// here we populate div with id="flipcardBack" with 'x'
 		flipcardFront.innerHTML += `<ul class="ingredientList">
@@ -164,3 +169,5 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 	// 
 }
 randomizeDrinks()
+
+

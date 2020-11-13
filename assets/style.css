@@ -151,3 +151,15 @@ img{
 .instructions{
     font-size: 15px;
 }
+
+#save-btn {
+    width: 50px;
+    font-size: 20px;
+    background-color:white;
+    border-radius: 10px;
+    
+}
+
+#heart {
+    color: rgb(243, 162, 207)
+}
