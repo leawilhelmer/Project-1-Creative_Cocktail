@@ -150,8 +150,19 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 			if (ingredientsArr[i] === null) {
 				break;
 			}
+			
+
+			//checking for truthiness != includes null & undefined
 			//we add each ingredient to the 'x'
-			x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;
+
+			if (measurementsArr[i] != null)
+				{x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;}
+
+			//checking for truthiness. if it is equal to null or undefined then..
+			else if (measurementsArr[i] !== null) {
+				window.print("to taste:")
+			}
+			
 		}
 		// here we populate div with id="flipcardBack" with 'x'
 		flipcardFront.innerHTML += `<ul class="ingredientList">
