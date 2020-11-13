@@ -20,6 +20,11 @@ header {
     font-size: 15px;
 }
 
+#search {
+    background-color: #191970;
+    color: white
+}
+
 .list{
     display: flex;
     justify-content: space-around;
@@ -62,17 +67,19 @@ img{
     margin-bottom: 0;
 }
 
-#listOfCocktails {
+#listOfCocktails li {
     margin-left:  15px;
+    display: inline-block;
 }
 
 
-.flipTheCard{
+
+/* .flipTheCard{
     transform: rotateY(180deg);
-}
+} */
 
 
-.ingredientBtn{
+/* .ingredientBtn{
     font-family: Century Gothic;
     background-color: #EE6E73;
     color: white;
@@ -86,7 +93,7 @@ img{
 .ingredientBtn:hover{
     top: -3px;
     cursor: pointer;
-}
+} */
 
 
 
