@@ -28,7 +28,7 @@ function drinkData() {
 }
 drinkData()
 
-function additionalData() {
+function listCocktailsData() {
 	fetch("https:the-cocktail-db.p.rapidapi.com/latest.php", {
 		"method": "GET",
 		"headers": {
@@ -53,7 +53,7 @@ function additionalData() {
 		console.error(err);
 	});
 }
-additionalData()
+listCocktailsData()
 
 //NOTE: this will be added to Most Popular Drinks html
 var popularDrink = document.querySelector("#popular-div")
@@ -164,6 +164,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 		</ul>
 		`;
 		flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[random].strInstructions}</p>`
+		flipcardBack.innerHTML += `<button id=“save-btn”><i class=“material-icons” id=“heart”>favorite</i></button>`
 	});
 	// FIXME: I noticed when margarita or brandy alexander appears at random, salt and nutmeg measurement = null. 
 	// 
