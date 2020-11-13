@@ -138,21 +138,22 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 		let x = "";
 		// We loop through the array
 		for (var i = 0; i <= ingredientsArr.length; i++) {
-			//if the next ingredient is 'null' that means
-			//the rest are null, so we stop the loop
-			//and keep the actual ingredient
+			// if the next ingredient is 'null' that means
+			// the rest are null, so we stop the loop
+			// and keep the actual ingredient
 			if (ingredientsArr[i] === null) {
 				break;
 			}
 			
 
-			//checking for truthiness != includes null & undefined
-			//we add each ingredient to the 'x'
+			// checking for truthiness != includes null & undefined
+			// for measurements
+			// we add each ingredient to the 'x'
 
 			if (measurementsArr[i] != null)
 				{x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;}
 
-			//checking for truthiness. if it is equal to null or undefined then..
+			// checking for truthiness. if it is equal to null or undefined then..
 			else if (measurementsArr[i] !== null) {
 				window.print("to taste:")
 			}
@@ -166,12 +167,14 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 		flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[random].strInstructions}</p>`
 		flipcardBack.innerHTML += `<button id=“save-btn”><i class=“material-icons” id=“heart”>favorite</i></button>`
 	});
-	// FIXME: I noticed when margarita or brandy alexander appears at random, salt and nutmeg measurement = null. 
-	// 
 }
 randomizeDrinks()
 
 var dadJoke = document.querySelector(".center-align")
+
+// played around this late. Getting a 503 error (CORS?) tried implementing a
+// second, diufferent API below but it is a "POST" method rather than GET. Maybe we can 
+// discuss this Friday.
 
 fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
 	"method": "GET",
@@ -186,4 +189,23 @@ fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
 .catch(err => {
 	console.error(err);
 });
+
+// fetch("https://joke3.p.rapidapi.com/v1/joke", {
+// 	"method": "POST",
+// 	"headers": {
+// 		"content-type": "application/json",
+// 		"x-rapidapi-key": "3215d1c57cmshd51f291a140a483p1c66d3jsn2f47ba848068",
+// 		"x-rapidapi-host": "joke3.p.rapidapi.com"
+// 	},
+// 	"body": {
+// 		"content": "A joke here",
+// 		"nsfw": "false"
+// 	}
+// })
+// 	.then(response => {
+// 		console.log(response);
+// 	})
+// 	.catch(err => {
+// 		console.error(err);
+// 	});
 
