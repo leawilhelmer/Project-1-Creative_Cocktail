@@ -167,3 +167,9 @@ img{
 .container {
     float: right;
 }
+
+#jokesCard {
+    font-size: 23px;
+    text-decoration: underline;
+    
+}

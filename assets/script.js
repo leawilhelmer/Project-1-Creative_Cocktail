@@ -184,8 +184,8 @@ var dadJoke = document.querySelector(".center-align")
 // second, diufferent API below but it is a "POST" method rather than GET. Maybe we can 
 // discuss this Friday.
 
-var setupJoke = document.querySelector("#setup")
-var punchlineJoke = document.querySelector("#punchline")
+
+
 var cardPanel = document.querySelector(".card-panel")
 
 fetch("https://joke3.p.rapidapi.com/v1/joke", {
@@ -202,7 +202,7 @@ fetch("https://joke3.p.rapidapi.com/v1/joke", {
 	
 	console.log(joke)
 
-	var jokeSetUp = `<h5>${joke}</h5>`
+	var jokeSetUp = `<h5 style="color: red">${joke}</h5>`
 
 	cardPanel.innerHTML += jokeSetUp;
 
