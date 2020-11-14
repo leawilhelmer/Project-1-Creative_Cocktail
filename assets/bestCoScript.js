@@ -17,6 +17,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
     }
 }).then(response => response.json())
     .then(data => {
+        console.log(data)
         for (let i = 0; i < 4; i++) {
             let name = data.drinks[i].strDrink;
             let imgUrl = data.drinks[i].strDrinkThumb;
@@ -64,8 +65,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
             console.log(x)
             latest.innerHTML += x;
         }
-
-
     })
 
 

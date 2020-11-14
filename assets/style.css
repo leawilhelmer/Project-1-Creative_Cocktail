@@ -164,3 +164,6 @@ img{
 #heart {
     color: rgb(243, 162, 207)
 }
+.container {
+    float: right;
+}

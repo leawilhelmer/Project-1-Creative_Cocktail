@@ -1,8 +1,6 @@
 //NOTE: this will be added to List of Drinks
 var drinksDiv = document.querySelector("#drinksDiv")
 
-
-
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		"method": "GET",
@@ -63,7 +61,7 @@ function listCocktailsData() {
 }
 listCocktailsData()
 
-//NOTE: this will be added to Most Popular Drinks html
+// NOTE: this will be added to Most Popular Drinks html
 var popularDrink = document.querySelector("#popular-div")
 var flipCardBack = document.querySelector(".flip-card-back")
 
@@ -85,9 +83,6 @@ function mostPopularDrinks() {
 			var popDrinksName = drinksEle.strDrink
 			var popDrinksImg = drinksEle.strDrinkThumb
 			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-			
-
-			
 		}
 		})
 	.catch(err => {
@@ -95,6 +90,8 @@ function mostPopularDrinks() {
 	})
 }
 mostPopularDrinks()
+
+
 
 
 // NOTE: Adding randomize drinks to index.html
@@ -187,39 +184,30 @@ var dadJoke = document.querySelector(".center-align")
 // second, diufferent API below but it is a "POST" method rather than GET. Maybe we can 
 // discuss this Friday.
 
-fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
+var setupJoke = document.querySelector("#setup")
+var punchlineJoke = document.querySelector("#punchline")
+var cardPanel = document.querySelector(".card-panel")
+
+fetch("https://joke3.p.rapidapi.com/v1/joke", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
-		"x-rapidapi-host": "dad-jokes.p.rapidapi.com"
+		"x-rapidapi-host": "joke3.p.rapidapi.com"
 	}
 })
 .then(response => response.json())
 .then(dadJokesData => {
 	console.log(dadJokesData);
-	jokes
+	var joke = dadJokesData.content
+	
+	console.log(joke)
+
+	var jokeSetUp = `<h5>${joke}</h5>`
+
+	cardPanel.innerHTML += jokeSetUp;
+
 })
 .catch(err => {
 	console.error(err);
 });
-
-// fetch("https://joke3.p.rapidapi.com/v1/joke", {
-// 	"method": "POST",
-// 	"headers": {
-// 		"content-type": "application/json",
-// 		"x-rapidapi-key": "3215d1c57cmshd51f291a140a483p1c66d3jsn2f47ba848068",
-// 		"x-rapidapi-host": "joke3.p.rapidapi.com"
-// 	},
-// 	"body": {
-// 		"content": "A joke here",
-// 		"nsfw": "false"
-// 	}
-// })
-// 	.then(response => response.json())
-// 	.then(response => {
-// 		console.log(response);
-// 	})
-// 	.catch(err => {
-// 		console.error(err);
-// 	});
 
