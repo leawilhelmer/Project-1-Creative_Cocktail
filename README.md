@@ -15,9 +15,9 @@ To create a cocktail for a dinner party or some sort of event. This app targets 
 ## Tech/Framework Used:
 
 ##### Built with:
--Vanilla Javascript 
+-Vanilla Javascript [Link to MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
--MaterializeCSS
+-MaterializeCSS [Link to Materialize](https://materializecss.com/)
 
 ## Features:
 
