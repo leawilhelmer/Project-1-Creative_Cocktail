@@ -72,32 +72,6 @@ img{
     display: inline-block;
 }
 
-
-
-/* .flipTheCard{
-    transform: rotateY(180deg);
-} */
-
-
-/* .ingredientBtn{
-    font-family: Century Gothic;
-    background-color: #EE6E73;
-    color: white;
-    border-radius: 10px;
-    height: 30px;
-    border-color: transparent;
-    transition: all 0.2s ease-in-out;
-    top: 0;
-    position: relative;
-}
-.ingredientBtn:hover{
-    top: -3px;
-    cursor: pointer;
-} */
-
-
-
-
 .flip-card {
     margin:auto ;
     font-family: Century Gothic;
@@ -164,6 +138,8 @@ img{
 #heart {
     color: rgb(243, 162, 207)
 }
+
+/* placed Joke card on the right side of the page */
 .container {
     float: right;
 }
