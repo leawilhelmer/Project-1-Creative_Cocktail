@@ -1,6 +1,8 @@
 //NOTE: this will be added to List of Drinks
 var drinksDiv = document.querySelector("#drinksDiv")
 
+
+
 function drinkData() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
 		"method": "GET",
@@ -18,9 +20,15 @@ function drinkData() {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
 			
+			
+		
 		}
+
+		$(".saveBtn").click(function(){
+			console.log("clicked")
+		})
 	})
 	.catch(err => {
 		console.error(err);
@@ -45,7 +53,7 @@ function listCocktailsData() {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
 
 		}
 	})
@@ -57,6 +65,7 @@ listCocktailsData()
 
 //NOTE: this will be added to Most Popular Drinks html
 var popularDrink = document.querySelector("#popular-div")
+var flipCardBack = document.querySelector(".flip-card-back")
 
 function mostPopularDrinks() {
 	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
@@ -69,13 +78,15 @@ function mostPopularDrinks() {
 	.then(response =>
 		response.json())
 	.then(moreData => {
-		console.log(moreData)
+		// console.log(moreData)
 		var drinksInfo = moreData.drinks
 		for (var i = 0 ; i < 8; i++) {
 			var drinksEle = drinksInfo[i];
 			var popDrinksName = drinksEle.strDrink
 			var popDrinksImg = drinksEle.strDrinkThumb
-			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
+			
+
 			
 		}
 		})
@@ -165,7 +176,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 		</ul>
 		`;
 		flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[random].strInstructions}</p>`
-		flipcardBack.innerHTML += `<button id=“save-btn”><i class=“material-icons” id=“heart”>favorite</i></button>`
+		flipcardBack.innerHTML += `<button class="save-btn"><i class="material-icons" id="heart">favorite</i></button>`
 	});
 }
 randomizeDrinks()
@@ -179,12 +190,14 @@ var dadJoke = document.querySelector(".center-align")
 fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "5317d4a7bbmsheea7635e83cfc32p12631ejsnbaba3f7b7b71",
+		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
 		"x-rapidapi-host": "dad-jokes.p.rapidapi.com"
 	}
 })
-.then(response => {
-	console.log(response);
+.then(response => response.json())
+.then(dadJokesData => {
+	console.log(dadJokesData);
+	jokes
 })
 .catch(err => {
 	console.error(err);
@@ -202,6 +215,7 @@ fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
 // 		"nsfw": "false"
 // 	}
 // })
+// 	.then(response => response.json())
 // 	.then(response => {
 // 		console.log(response);
 // 	})

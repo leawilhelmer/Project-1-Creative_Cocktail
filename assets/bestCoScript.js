@@ -22,7 +22,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
             let imgUrl = data.drinks[i].strDrinkThumb;
             let drinkInstructions = data.drinks[i].strInstructions;
             let img = `<img src=${imgUrl} style="width: 200px; border-radius: 10px;"/>`;
-            let cocktailName = `<h3>${name}</h3>`;
+            let cocktailName = `<h4>${name}</h4>`;
             let instructions = `<p>${drinkInstructions}</p>`
             let ingredientsArray = [];
 
@@ -42,7 +42,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
             })
 
 
-            let ingredientsList = `<h3><b>Ingredients</b></h3>
+            let ingredientsList = `<h5><b>Ingredients</b></h5>
 <ul>${ingredients}</ul>`;
 
             let x = `<div class="col">
@@ -55,6 +55,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
       </div>
         <div id="flipcardBackLatest" class="flip-card-back">
         ${instructions}
+        <button class="save-btn"><i class="material-icons" id="heart">favorite</i></button>
         </div>
       </div>
     </div>
