@@ -29,14 +29,14 @@ Screenshots....
 
 ## API's
 
-Title: The Cocktail DB
+#### The Cocktail DB
 
-URL: https://rapidapi.com/thecocktaildb/api/the-cocktail-db
+https://rapidapi.com/thecocktaildb/api/the-cocktail-db
 
 
-Title: Joke
+#### Joke
 
-URL: https://rapidapi.com/LemmoTresto/api/joke3
+https://rapidapi.com/LemmoTresto/api/joke3
 
 
 
