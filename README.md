@@ -48,9 +48,6 @@ https://rapidapi.com/LemmoTresto/api/joke3
 - RapidAPI: CocktailDB, Jokes API
 - Communicating through Slack, Zoom, Trello
 
-# Screenshots:
-
-
 # Links to Deploy Application
 
 - GitHub page:
