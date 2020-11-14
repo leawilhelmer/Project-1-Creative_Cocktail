@@ -18,9 +18,11 @@ function drinkData() {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-			
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
 		}
+		$(".saveBtn").click(function(){
+			console.log("clicked")
+		})
 	})
 	.catch(err => {
 		console.error(err);
@@ -45,8 +47,7 @@ function listCocktailsData() {
 			var drinksEle = drinksInfo[i];
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
-			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-
+			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
 		}
 	})
 	.catch(err => {
@@ -54,36 +55,6 @@ function listCocktailsData() {
 	});
 }
 listCocktailsData()
-
-//NOTE: this will be added to Most Popular Drinks html
-var popularDrink = document.querySelector("#popular-div")
-
-function mostPopularDrinks() {
-	fetch("https://the-cocktail-db.p.rapidapi.com/popular.php", {
-		"method": "GET",
-		"headers": {
-			"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
-			"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
-		}
-	})
-	.then(response =>
-		response.json())
-	.then(moreData => {
-		console.log(moreData)
-		var drinksInfo = moreData.drinks
-		for (var i = 0 ; i < 8; i++) {
-			var drinksEle = drinksInfo[i];
-			var popDrinksName = drinksEle.strDrink
-			var popDrinksImg = drinksEle.strDrinkThumb
-			popularDrink.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${popDrinksName}</strong></h6><img src=${popDrinksImg} style="width: 280px; border-radius: 10px;"/><button id="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-			
-		}
-		})
-	.catch(err => {
-		console.error(err);
-	})
-}
-mostPopularDrinks()
 
 
 // NOTE: Adding randomize drinks to index.html
@@ -155,9 +126,8 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 
 			// checking for truthiness. if it is equal to null or undefined then..
 			else if (measurementsArr[i] !== null) {
-				window.print("to taste:")
+				// window.print("to taste:")
 			}
-			
 		}
 		// here we populate div with id="flipcardBack" with 'x'
 		flipcardFront.innerHTML += `<ul class="ingredientList">
@@ -165,7 +135,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 		</ul>
 		`;
 		flipcardBack.innerHTML+=`<p class="instructions">${data.drinks[random].strInstructions}</p>`
-		flipcardBack.innerHTML += `<button id=“save-btn”><i class=“material-icons” id=“heart”>favorite</i></button>`
+		flipcardBack.innerHTML += `<button class="save-btn"><i class="material-icons" id="heart">favorite</i></button>`
 	});
 }
 randomizeDrinks()
@@ -176,36 +146,90 @@ var dadJoke = document.querySelector(".center-align")
 // second, diufferent API below but it is a "POST" method rather than GET. Maybe we can 
 // discuss this Friday.
 
-fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
+
+
+var cardPanel = document.querySelector(".card-panel")
+
+fetch("https://joke3.p.rapidapi.com/v1/joke", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "5317d4a7bbmsheea7635e83cfc32p12631ejsnbaba3f7b7b71",
-		"x-rapidapi-host": "dad-jokes.p.rapidapi.com"
+		"x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+		"x-rapidapi-host": "joke3.p.rapidapi.com"
 	}
 })
-.then(response => {
-	console.log(response);
+.then(response => response.json())
+.then(dadJokesData => {
+	console.log(dadJokesData);
+	var joke = dadJokesData.content
+	
+	console.log(joke)
+
+	var jokeSetUp = `<h5 style="color: red">${joke}</h5>`
+
+	cardPanel.innerHTML += jokeSetUp;
+
 })
 .catch(err => {
 	console.error(err);
 });
 
-// fetch("https://joke3.p.rapidapi.com/v1/joke", {
-// 	"method": "POST",
-// 	"headers": {
-// 		"content-type": "application/json",
-// 		"x-rapidapi-key": "3215d1c57cmshd51f291a140a483p1c66d3jsn2f47ba848068",
-// 		"x-rapidapi-host": "joke3.p.rapidapi.com"
-// 	},
-// 	"body": {
-// 		"content": "A joke here",
-// 		"nsfw": "false"
-// 	}
-// })
-// 	.then(response => {
-// 		console.log(response);
-// 	})
-// 	.catch(err => {
-// 		console.error(err);
-// 	});
+// This is where we put the code for the latest cocktail
+//This variable is for the div with id 'flipcardFront'
+const flipcardFrontLatest = document.getElementById("flipcardFrontLatest");
 
+//This variable is for the div with id 'flipcardBack'
+const flipcardBackLatest = document.getElementById("flipcardBackLatest");
+const latest = document.getElementById("latest");
+
+// beginning fetch request
+fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-key": "1b17814413msh79012f3c019efc8p1c7fb7jsn69899d6e8800",
+        "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+    }
+}).then(response => response.json())
+    .then(data => {
+        console.log(data)
+        for (let i = 0; i < 4; i++) {
+            let name = data.drinks[i].strDrink;
+            let imgUrl = data.drinks[i].strDrinkThumb;
+            let drinkInstructions = data.drinks[i].strInstructions;
+            let img = `<img src=${imgUrl} style="width: 200px; border-radius: 10px;"/>`;
+            let cocktailName = `<h4>${name}</h4>`;
+            let instructions = `<p>${drinkInstructions}</p>`
+            let ingredientsArray = [];
+
+            for (const [key, value] of Object.entries(data.drinks[i])) {
+                let a = ""
+                if (key.length > 13)
+                    a = key.substring(3, 13);
+                if (a === "Ingredient" && value != null)
+                    ingredientsArray.push(value);
+            }
+            let ingredients = '';
+            ingredientsArray.map(ingr => {
+                ingredients += `<li>${ingr}</li>`;
+            })
+            let ingredientsList = `<h5><b>Ingredients</b></h5> <ul>${ingredients}</ul>`;
+
+            let x = `<div class="col">
+		<div class="flip-card">
+		<div class="flip-card-inner">
+        <div id="flipcardFrontLatest" class="flip-card-front">
+        ${img}
+        ${cocktailName}
+        ${ingredientsList}
+		</div>
+        <div id="flipcardBackLatest" class="flip-card-back">
+        ${instructions}
+        <button class="save-btn"><i class="material-icons" id="heart">favorite</i></button>
+        </div>
+		</div>
+    </div>
+
+	</div>`;
+            console.log(x)
+            latest.innerHTML += x;
+        }
+    })

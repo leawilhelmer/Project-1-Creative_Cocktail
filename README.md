@@ -1,18 +1,22 @@
 # Group Project - SQL Injection
 
-In this project we're creating a web application using an API.
+In this project we're creating a web application using two server-side API. 
 
 
-### **DO NOT OVERWRITE EACH OTHER'S CODE -- communicate on what we're doing.**
 
 
-## Key Communication
+# Technology used:
+- MaterializeCSS: Navbar, Cards, Icons, Colors 
+- RapidAPI: CocktailDB, Jokes API
+- Communicating through Slack, Zoom, Trello
 
-- Communicate on what we're working on
+# Screenshots:
 
-- Let's reduce merge conflicts:
 
-    -Touch base on what we're actively working on
+# Links to Deploy Application
 
-    -if we're working on the same part of the project at the same time, let's let
-    each other know on slack.
+- GitHub page:
+
+- Repo Page: https://github.com/Victortran415/Creative_Cocktails
+
+
