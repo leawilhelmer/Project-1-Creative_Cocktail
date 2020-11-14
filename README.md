@@ -6,7 +6,11 @@ In this project our team created a cocktail web application that references seve
 
 To create a cocktail for a dinner party or some sort of event. This app targets future bartenders or those looking to polish up their mixology skills. Our site can be an educational and entertaining resource.
 
-	Every good bartender needs to both make a drink, and entertain their guests. Coupling together a Joke API and a Cocktail Recipe API allows our userbase to better learn and understand the ins and outs of bartending in general. One must both make an excellent drink and employ showmanship to impress their guest. That’s what our app does. 
+	Every good bartender needs to both make a drink, and entertain their guests.
+	Coupling together a Joke API and a Cocktail Recipe API allows our userbase 
+	to better learn and understand the ins and outs of bartending in general. 
+	One must both make an excellent drink and employ showmanship to impress their 
+	guest. That’s what our app does. 
 
 ## Tech/Framework Used:
 
