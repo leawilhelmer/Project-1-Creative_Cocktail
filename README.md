@@ -26,11 +26,6 @@ To create a cocktail for a dinner party or some sort of event. This app targets 
 
 Our project stands out because no one else has designed an application exactly like this. We recognized the need for a cocktail recipe API and recognized many aspiring hosts and bartenders need a way of entertaining their guests.
 
-## Code Example:
-
-"Show off our most complicated, concise and prettiest code.
-Screenshots....
-
 ## API's
 
 #### The Cocktail DB
