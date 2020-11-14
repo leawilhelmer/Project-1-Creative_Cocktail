@@ -45,7 +45,7 @@ https://rapidapi.com/LemmoTresto/api/joke3
 
 # Links to Deploy Application
 
-- GitHub page:
+- GitHub page: https://victortran415.github.io/Creative_Cocktails/
 
 - Repo Page: https://github.com/Victortran415/Creative_Cocktails
 
