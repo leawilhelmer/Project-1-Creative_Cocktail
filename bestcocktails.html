@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-    <title>Creative Cocktails</title>
+    <title>Crowd Pleasers - Creative Cocktails</title>
 </head>
 
 
@@ -16,9 +16,12 @@
 
     <header>Creative Cocktails</header>
 
+
+    <!-- beginning of Nav -->
     <nav>
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html" style="font-size: 20px; text-decoration: underline;">Random Cocktail</a></li>
                 <li><a href="cocktails.html" style="font-size: 20px; text-decoration: underline;">List of Drinks</a></li>
                 <li><a href="bestcocktails.html" style="font-size: 20px; text-decoration: underline;">Popular Cocktails</a></li>
                 <li>
@@ -35,46 +38,32 @@
         </a>
         </div>
     </nav>
+<!-- end of Nav -->
 
+    <!--Latest Cocktails-->
+    <div class="latestCocktails">
 
-<!-- Cameron -->
+        <!-- renamed to crowd pleasers because it adds more zest &
+                    feels more personal.
+                    each one of these cocktails fits a different
+                    flavor profile: savory, sweet, bitter, sour, etc. -->
+        <h2 style="text-align: center;">Crowd Pleasers</h2>
+        <div id="latest" class="row">
+            <div class="col">
+                <div class="flip-card-latest">
+                    <div class="flip-card-inner">
+                        <div id="flipcardFrontLatest" class="flip-card-front"></div>
+                        <div id="flipcardBackLatest" class="flip-card-back"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- End of Latest Cocktails-->
 
-
-
-
-
-
-<!-- Lea -->
-
-
-
-
-
-
-
-<!-- Andre -->
-
-
-
-
-
-
-
-
-
-<!-- victor -->
-
-<div class="all-cocktails">
-    <div class="row"> 
-         <div class="col s12">
-        <h2 style="text-align: center;">Most Popular Drinks</h2>
-        <!-- <div class="col s4"> -->
-            <div id="popular-div"></div>
-      </div>
-    </div>
-</div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./assets/script.js"></script>
+
+<!-- renamed scipt to another external JS file for Bestcocktails.html -->
+<script src="./assets/bestCoScript.js"></script>
 </html>
