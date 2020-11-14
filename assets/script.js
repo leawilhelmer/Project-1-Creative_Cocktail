@@ -125,8 +125,10 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 				{x += `<li class="ingredient">${measurementsArr[i]+` `+ingredientsArr[i]}</li>`;}
 
 			// checking for truthiness. if it is equal to null or undefined then..
+
 			else if (measurementsArr[i] !== null) {
 				// window.print("to taste:")
+
 			}
 		}
 		// here we populate div with id="flipcardBack" with 'x'
