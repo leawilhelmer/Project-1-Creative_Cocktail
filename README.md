@@ -16,3 +16,18 @@ In this project we're creating a web application using an API.
 
     -if we're working on the same part of the project at the same time, let's let
     each other know on slack.
+
+# Technology used:
+- MaterialCSS: Navbar, Cards, Icons 
+- RapidAPI: CocktailDB, Jokes API
+
+# Screenshots:
+
+
+# Links to Deploy Application
+
+- GitHub page:
+
+- Repo Page:
+
+
