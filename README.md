@@ -39,22 +39,6 @@ https://rapidapi.com/thecocktaildb/api/the-cocktail-db
 https://rapidapi.com/LemmoTresto/api/joke3
 
 
-
-
-### **DO NOT OVERWRITE EACH OTHER'S CODE -- communicate on what we're doing.**
-
-
-## Key Communication
-
-- Communicate on what we're working on
-
-- Let's reduce merge conflicts:
-
-    -Touch base on what we're actively working on
-
-    -if we're working on the same part of the project at the same time, let's let
-    each other know on slack.
-
 # Technology used:
 - MaterialCSS: Navbar, Cards, Icons 
 - RapidAPI: CocktailDB, Jokes API
