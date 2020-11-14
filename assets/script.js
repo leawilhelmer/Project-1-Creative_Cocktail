@@ -128,7 +128,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 
 			else if (measurementsArr[i] !== null) {
 				// window.print("to taste:")
-
 			}
 		}
 		// here we populate div with id="flipcardBack" with 'x'
@@ -163,13 +162,10 @@ fetch("https://joke3.p.rapidapi.com/v1/joke", {
 .then(dadJokesData => {
 	console.log(dadJokesData);
 	var joke = dadJokesData.content
-	
+
 	console.log(joke)
-
 	var jokeSetUp = `<h5 style="color: red">${joke}</h5>`
-
 	cardPanel.innerHTML += jokeSetUp;
-
 })
 .catch(err => {
 	console.error(err);
