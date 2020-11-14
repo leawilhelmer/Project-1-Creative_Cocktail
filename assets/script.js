@@ -19,11 +19,7 @@ function drinkData() {
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
 			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-			
-			
-		
 		}
-
 		$(".saveBtn").click(function(){
 			console.log("clicked")
 		})
@@ -52,7 +48,6 @@ function listCocktailsData() {
 			var drinksName = drinksEle.strDrink
 			var drinksImg = drinksEle.strDrinkThumb
 			drinksDiv.innerHTML += `<div class="col s3"><h6 style="text-align: center"><strong>${drinksName}</strong></h6><img src=${drinksImg} style="width: 280px; border-radius: 10px;"/><button class="save-btn"><i class="material-icons" id="heart">favorite</i></button></div>`
-
 		}
 	})
 	.catch(err => {
@@ -131,9 +126,8 @@ fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 
 			// checking for truthiness. if it is equal to null or undefined then..
 			else if (measurementsArr[i] !== null) {
-				window.print("to taste:")
+				// window.print("to taste:")
 			}
-			
 		}
 		// here we populate div with id="flipcardBack" with 'x'
 		flipcardFront.innerHTML += `<ul class="ingredientList">
@@ -213,20 +207,14 @@ fetch("https://the-cocktail-db.p.rapidapi.com/latest.php", {
                 if (a === "Ingredient" && value != null)
                     ingredientsArray.push(value);
             }
-
-
-
             let ingredients = '';
             ingredientsArray.map(ingr => {
                 ingredients += `<li>${ingr}</li>`;
             })
-
-
-            let ingredientsList = `<h5><b>Ingredients</b></h5>
-<ul>${ingredients}</ul>`;
+            let ingredientsList = `<h5><b>Ingredients</b></h5> <ul>${ingredients}</ul>`;
 
             let x = `<div class="col">
-    <div class="flip-card">
+		<div class="flip-card">
 		<div class="flip-card-inner">
         <div id="flipcardFrontLatest" class="flip-card-front">
         ${img}
