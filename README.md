@@ -17,7 +17,7 @@ Built with:
 
 ## Features:
 
-![Alt Text]https://media.giphy.com/media/79Iu9yjG1JFj6PA1RN/giphy.gif
+![Alt Text](https://media.giphy.com/media/79Iu9yjG1JFj6PA1RN/giphy.gif)
 
 
 Our project stands out because no one else has designed an application exactly like this. We recognized the need for a cocktail recipe API and recognized many aspiring hosts and bartenders need a way of entertaining their guests.
