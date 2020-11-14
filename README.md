@@ -1,9 +1,8 @@
 # Group Project - SQL Injection
-
 In this project our team created a cocktail web application that references several different server-side and in-browser API's.
 
-## Motivation
 
+## Motivation
 To create a cocktail for a dinner party or some sort of event. This app targets future bartenders or those looking to polish up their mixology skills. Our site can be an educational and entertaining resource.
 
 	Every good bartender needs to both make a drink and entertain their guests.
@@ -11,6 +10,7 @@ To create a cocktail for a dinner party or some sort of event. This app targets 
 	to better learn and understand the ins and outs of bartending in general. 
 	One must both make an excellent drink and employ showmanship to impress their 
 	guest. That’s what our app does. 
+
 
 ## Tech/Framework Used:
 
@@ -44,8 +44,9 @@ https://rapidapi.com/LemmoTresto/api/joke3
 
 
 # Technology used:
-- MaterialCSS: Navbar, Cards, Icons 
+- MaterializeCSS: Navbar, Cards, Icons, Colors 
 - RapidAPI: CocktailDB, Jokes API
+- Communicating through Slack, Zoom, Trello
 
 # Screenshots:
 
@@ -54,6 +55,6 @@ https://rapidapi.com/LemmoTresto/api/joke3
 
 - GitHub page:
 
-- Repo Page:
+- Repo Page: https://github.com/Victortran415/Creative_Cocktails
 
 
